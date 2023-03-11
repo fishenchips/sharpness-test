@@ -1,5 +1,7 @@
+import { Dashboard } from "@/components/dashboard";
+
 const Problem2 = () => {
-  return <></>;
+  return <Dashboard />;
 };
 
 export default Problem2;
