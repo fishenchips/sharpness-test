@@ -1,5 +1,7 @@
 import { useGetPuppies } from "@/queries/unsplash/hooks/useGetPuppies";
 import { Puppey } from "./components/Puppey";
+import styled from "styled-components";
+import { SimpleGrid } from "@chakra-ui/react";
 
 export const Puppies = () => {
   const { data: puppies, isFetching, error } = useGetPuppies();
@@ -18,15 +20,27 @@ export const Puppies = () => {
 
   console.log(colors);
   return (
-    <div>
+    <PuppiesDiv>
       <h1>What&apos;s your favorite dog?</h1>
-      {puppies?.results.map((puppey) => (
-        <Puppey
-          key={puppey.id}
-          img={puppey.urls.small}
-          alt={puppey.alt_description}
-        />
-      ))}
-    </div>
+      <SimpleGrid
+        spacing={4}
+        templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+      >
+        {puppies?.results.map((puppey) => (
+          <Puppey
+            key={puppey.id}
+            img={puppey.urls.small}
+            alt={puppey.alt_description}
+          />
+        ))}
+      </SimpleGrid>
+    </PuppiesDiv>
   );
 };
+
+const PuppiesDiv = styled.div`
+  width: 70vw;
+  margin: 0 auto;
+  border: 1px solid blue;
+  text-align: center;
+`;

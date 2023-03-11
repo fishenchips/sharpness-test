@@ -7,12 +7,22 @@ interface Props {
 
 export const Puppey: React.FC<Props> = ({ img, alt }) => {
   return (
-    <Card>
+    <Card size="sm" align="center">
       <CardHeader>
-        <Heading size="md">Client Report</Heading>
+        <Heading size="sm">
+          {alt
+            ? ((alt?.charAt(0).toUpperCase() + alt?.slice(1)) as string)
+            : "Puppey"}
+        </Heading>
       </CardHeader>
       <CardBody>
-        <Image src={img} alt={alt} borderRadius="lg" />
+        <Image
+          boxSize="250px"
+          objectFit="cover"
+          src={img}
+          alt={alt}
+          borderRadius="sm"
+        />
       </CardBody>
     </Card>
   );
