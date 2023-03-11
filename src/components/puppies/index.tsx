@@ -1,5 +1,4 @@
 import { useGetPuppies } from "@/queries/unsplash/hooks/useGetPuppies";
-import { Puppey } from "@/queries/unsplash/types";
 
 export const Puppies = () => {
   const { data: puppies, isFetching, error } = useGetPuppies();

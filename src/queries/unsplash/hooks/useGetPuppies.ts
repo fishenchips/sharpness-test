@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { PuppiesDTO } from "../types";
+import type { PuppiesDTO } from "../types";
 import { getPuppies } from "../unsplash-queries";
 
 const puppiesKey = "get-puppies";
