@@ -2,6 +2,7 @@ import { useGetPuppies } from "@/queries/unsplash/hooks/useGetPuppies";
 import { Puppey } from "./components/Puppey";
 import styled from "styled-components";
 import { SimpleGrid } from "@chakra-ui/react";
+import { FaPaw } from "react-icons/fa";
 
 export const Puppies = () => {
   const { data: puppies, isFetching, error } = useGetPuppies();
@@ -21,7 +22,9 @@ export const Puppies = () => {
   console.log(colors);
   return (
     <PuppiesDiv>
-      <h1>What&apos;s your favorite dog?</h1>
+      <h1>
+        What&apos;s your favorite dog? <FaPaw />
+      </h1>
       <SimpleGrid
         spacing={4}
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
@@ -41,6 +44,5 @@ export const Puppies = () => {
 const PuppiesDiv = styled.div`
   width: 70vw;
   margin: 0 auto;
-  border: 1px solid blue;
   text-align: center;
 `;
