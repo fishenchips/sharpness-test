@@ -1,4 +1,4 @@
-import { AnagramForm } from "@/components/anagram/anagramForm";
+import { AnagramForm } from "@/components/anagramForm";
 
 const Problem1 = () => {
   return <AnagramForm />;
