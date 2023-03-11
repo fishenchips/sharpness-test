@@ -1,11 +1,7 @@
-import { useGetPuppies } from "@/queries/unsplash/hooks/useGetPuppies";
+import { Puppies } from "@/components/puppies";
 
 const Problem3 = () => {
-  const { data } = useGetPuppies();
-
-  console.log(data);
-
-  return <></>;
+  return <Puppies />;
 };
 
 export default Problem3;
