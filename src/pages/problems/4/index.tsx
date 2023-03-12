@@ -1,4 +1,5 @@
 import { DashboardBackend } from "@/components/dashboard/backend";
+import { LoadingSpinner } from "@/components/layout/loadingSpinner";
 import { useGetGameQueries } from "@/queries/games/hooks/useGetGameQueries";
 import { Game } from "@/queries/games/types";
 
@@ -14,11 +15,11 @@ const Problem4 = () => {
     .reverse();
 
   if (isLoading) {
-    return <p>Loading..</p>;
+    return <LoadingSpinner />;
   }
 
   if (!gameData) {
-    return <p>Please try again</p>;
+    return <p>Something went wrong, please try again</p>;
   }
 
   return (

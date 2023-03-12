@@ -6,12 +6,13 @@ import { colorCodes } from "./utils";
 import { PuppiesDiv } from "./styled";
 import { PuppeyTab } from "./components/tabPanel";
 import { PuppeyTabList } from "./components/tabList";
+import { LoadingSpinner } from "../layout/loadingSpinner";
 
 export const Puppies = () => {
   const { data: puppies, isFetching, error } = useGetPuppies();
 
   if (isFetching) {
-    return <p>Loading...</p>;
+    return <LoadingSpinner />;
   }
 
   if (error) {
