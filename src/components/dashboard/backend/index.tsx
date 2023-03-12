@@ -28,20 +28,20 @@ interface Props {
 }
 
 export const DashboardBackend: React.FC<Props> = ({ LoL, minecraft }) => {
-  const dates = LoL.map((period) => `${period.year}/${period.month}`);
+  const dates = LoL.map(({ year, month }) => `${year}/${month}`);
 
   const data = {
     labels: dates,
     datasets: [
       {
         label: "League of Legends",
-        data: LoL.map((m) => m.active_players),
+        data: LoL.map(({ active_players }) => active_players),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: "Minecreaft",
-        data: minecraft.map((m) => m.active_players),
+        label: "Minecraft",
+        data: minecraft.map(({ active_players }) => active_players),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
