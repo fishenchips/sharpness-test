@@ -7,7 +7,7 @@ export const PuppeyTabList = () => {
       <Tab>Brown</Tab>
       <Tab>White</Tab>
       <Tab>Black</Tab>
-      <Tab>Others</Tab>
+      <Tab>Yellow</Tab>
     </TabList>
   );
 };

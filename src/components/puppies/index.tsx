@@ -2,7 +2,6 @@ import { Tabs, TabPanels } from "@chakra-ui/react";
 import { useGetPuppies } from "@/queries/unsplash/hooks/useGetPuppies";
 import { Puppey } from "./components/puppey";
 import { FaPaw } from "react-icons/fa";
-import { colorCodes } from "./utils";
 import { PuppiesDiv } from "./styled";
 import { PuppeyTab } from "./components/tabPanel";
 import { PuppeyTabList } from "./components/tabList";
@@ -19,20 +18,25 @@ export const Puppies = () => {
     return <p>Something went wrong, please try again</p>;
   }
 
-  const brownPuppies = puppies?.results.filter(({ color }) =>
-    colorCodes.brown.find((code) => color === code)
+  puppies?.results.forEach((puppey) => {
+    puppey;
+  });
+
+  const brownPuppies = puppies?.results.filter(({ alt_description }) =>
+    alt_description?.includes("brown")
   );
 
-  const whitePuppies = puppies?.results.filter(({ color }) =>
-    colorCodes.white.find((code) => color === code)
+  const whitePuppies = puppies?.results.filter(({ alt_description }) =>
+    alt_description?.includes("white")
   );
 
-  const blackPuppies = puppies?.results.filter(({ color }) =>
-    colorCodes.black.find((code) => color === code)
+  const blackPuppies = puppies?.results.filter(({ alt_description }) =>
+    alt_description?.includes("black")
   );
 
-  const otherColors = puppies?.results.filter(({ color }) =>
-    colorCodes.others.find((code) => color === code)
+  const yellowPuppies = puppies?.results.filter(
+    ({ alt_description }) =>
+      alt_description?.includes("yellow") || alt_description?.includes("golden")
   );
 
   return (
@@ -80,7 +84,7 @@ export const Puppies = () => {
             ))}
           </PuppeyTab>
           <PuppeyTab>
-            {otherColors?.map((puppey) => (
+            {yellowPuppies?.map((puppey) => (
               <Puppey
                 key={puppey.id}
                 img={puppey.urls.small}
