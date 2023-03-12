@@ -18,10 +18,6 @@ export const Puppies = () => {
     return <p>Something went wrong, please try again</p>;
   }
 
-  puppies?.results.forEach((puppey) => {
-    puppey;
-  });
-
   const brownPuppies = puppies?.results.filter(({ alt_description }) =>
     alt_description?.includes("brown")
   );
