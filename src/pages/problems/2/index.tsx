@@ -1,7 +1,7 @@
-import { Dashboard } from "@/components/dashboard";
+import { DashboardHardCoded } from "@/components/dashboard/hardCoded";
 
 const Problem2 = () => {
-  return <Dashboard />;
+  return <DashboardHardCoded />;
 };
 
 export default Problem2;
