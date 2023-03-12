@@ -1,4 +1,5 @@
 import { SyntheticEvent, useRef, useState } from "react";
+import { AnagramDiv } from "./styled";
 
 export const AnagramForm = () => {
   const wordOneRef = useRef<HTMLInputElement>(null);
@@ -37,8 +38,8 @@ export const AnagramForm = () => {
   };
 
   return (
-    <div>
-      <h2>Anagram evaluator</h2>
+    <AnagramDiv>
+      <h1>Anagram evaluator</h1>
       <p>Please enter two words</p>
       <form onSubmit={checkAnagram}>
         <input type="text" name="wordOne" ref={wordOneRef} />
@@ -46,6 +47,6 @@ export const AnagramForm = () => {
         <input type="submit" value="Check" />
       </form>
       {result && <p>{result}</p>}
-    </div>
+    </AnagramDiv>
   );
 };

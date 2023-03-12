@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { DashboardDiv } from "../styled";
 
 ChartJS.register(
   CategoryScale,
@@ -58,12 +59,12 @@ export const DashboardBackend: React.FC<Props> = ({ LoL, minecraft }) => {
   };
 
   return (
-    <div>
+    <DashboardDiv>
       <h1>Dashboard - Data from backend</h1>
       <fieldset>
         <legend>Active Users</legend>
         <Line data={data} options={options} />
       </fieldset>
-    </div>
+    </DashboardDiv>
   );
 };

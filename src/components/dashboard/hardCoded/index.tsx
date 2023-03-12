@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import gameData from "../../../data/frontend-data-set.json";
+import { DashboardDiv } from "../styled";
 
 ChartJS.register(
   CategoryScale,
@@ -54,12 +55,12 @@ export const DashboardHardCoded = () => {
   };
 
   return (
-    <div>
+    <DashboardDiv>
       <h1>Dashboard</h1>
       <fieldset>
         <legend>Active Users</legend>
         <Line data={data} options={options} />
       </fieldset>
-    </div>
+    </DashboardDiv>
   );
 };
