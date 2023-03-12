@@ -1,15 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2/promise";
 
-type Data = {
-  name: string;
-};
-
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse /* <Data> */
-) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     const connection = await mysql.createConnection({
       host: process.env.DB_HOST,
@@ -29,7 +21,9 @@ const handler = async (
 
     const result = await connection.execute(query, values);
 
-    res.status(200).json({ result });
+    const data = result[0];
+
+    res.status(200).json({ data });
   }
 };
 

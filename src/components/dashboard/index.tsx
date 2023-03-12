@@ -1,7 +1,7 @@
 import {
   Chart as ChartJS,
-  CategoryScale, // x axis
-  LinearScale, // y axis
+  CategoryScale,
+  LinearScale,
   PointElement,
   LineElement,
   Title,
@@ -12,8 +12,8 @@ import { Line } from "react-chartjs-2";
 import gameData from "../../data/frontend-data-set.json";
 
 ChartJS.register(
-  CategoryScale, // x axis
-  LinearScale, // y axis
+  CategoryScale,
+  LinearScale,
   PointElement,
   LineElement,
   Title,
