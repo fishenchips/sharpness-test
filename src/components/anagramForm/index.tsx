@@ -1,5 +1,6 @@
 import { SyntheticEvent, useRef, useState } from "react";
-import { AnagramDiv } from "./styled";
+import { Button } from "@chakra-ui/react";
+import { AnagramDiv, AnagramInput } from "./styled";
 
 export const AnagramForm = () => {
   const wordOneRef = useRef<HTMLInputElement>(null);
@@ -42,9 +43,11 @@ export const AnagramForm = () => {
       <h1>Anagram evaluator</h1>
       <p>Please enter two words</p>
       <form onSubmit={checkAnagram}>
-        <input type="text" name="wordOne" ref={wordOneRef} />
-        <input type="text" name="wordOne" ref={wordTwoRef} />
-        <input type="submit" value="Check" />
+        <AnagramInput type="text" name="wordOne" ref={wordOneRef} />
+        <AnagramInput type="text" name="wordOne" ref={wordTwoRef} />
+        <Button type="submit" colorScheme="teal" size="sm">
+          Check
+        </Button>
       </form>
       {result && <p>{result}</p>}
     </AnagramDiv>
