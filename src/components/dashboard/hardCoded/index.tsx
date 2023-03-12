@@ -23,21 +23,21 @@ ChartJS.register(
 );
 
 export const DashboardHardCoded = () => {
-  const LoL = gameData.filter((g) => g.game === "League of Legends");
-  const minecraft = gameData.filter((g) => g.game === "Minecraft");
+  const LoL = gameData.filter(({ game }) => game === "League of Legends");
+  const minecraft = gameData.filter(({ game }) => game === "Minecraft");
 
   const data = {
-    labels: LoL.map((m) => m.date),
+    labels: LoL.map(({ date }) => date),
     datasets: [
       {
         label: "League of Legends",
-        data: LoL.map((m) => m.activeUsers),
+        data: LoL.map(({ activeUsers }) => activeUsers),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
         label: "Minecreaft",
-        data: minecraft.map((m) => m.activeUsers),
+        data: minecraft.map(({ activeUsers }) => activeUsers),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
