@@ -43,8 +43,18 @@ export const AnagramForm = () => {
       <h1>Anagram evaluator</h1>
       <p>Please enter two words</p>
       <form onSubmit={checkAnagram}>
-        <AnagramInput type="text" name="wordOne" ref={wordOneRef} />
-        <AnagramInput type="text" name="wordOne" ref={wordTwoRef} />
+        <AnagramInput
+          type="text"
+          name="wordOne"
+          ref={wordOneRef}
+          data-testid="wordOne"
+        />
+        <AnagramInput
+          type="text"
+          name="wordOne"
+          ref={wordTwoRef}
+          data-testid="wordTwo"
+        />
         <Button type="submit" colorScheme="teal" size="sm">
           Check
         </Button>

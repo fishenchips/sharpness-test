@@ -1,13 +1,23 @@
 import userEvent from "@testing-library/user-event";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { AnagramForm } from ".";
 
 describe("<AnagramForm />", () => {
-  /* const user = userEvent.setup(); */
+  const user = userEvent.setup();
 
-  test("If user enters two strings anagram, they will recieve that feedback", () => {
+  it("If user enters two string anagram, they will recieve that feedback", async () => {
     render(<AnagramForm />);
 
-    screen.findByRole("");
+    const inputOne = screen.getByTestId("wordOne");
+    const inputTwo = screen.getByTestId("wordTwo");
+
+    await user.type(inputOne, "hej");
+    await user.type(inputTwo, "ehj");
+    await user.click(screen.getByRole("button", { name: /check/i }));
+
+    expect(
+      screen.queryByText(/hej and ehj are anagrams!/i)
+    ).toBeInTheDocument();
   });
 });

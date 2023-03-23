@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "jest",
+    "test": "jest --watch",
     "coverage": "jest --coverage",
     "build": "next build",
     "start": "next start",
